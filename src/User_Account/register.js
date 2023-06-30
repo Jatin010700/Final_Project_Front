@@ -17,7 +17,7 @@ export default function Register() {
     event.preventDefault();
 
     try {
-      const response = await fetch("https://car-rental-back.onrender.com/register:5000", {
+      const response = await fetch('/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -173,9 +173,10 @@ export default function Register() {
       {/*------intro-----*/}
       <div className="divContent">
         <div className="flex flex-col p-4 rounded-2xl ml-2 h-full bg-L-black text-justify">
-          <h1 className="text-B-yellow text-4xl text-center font-bold ">
-            CAR <i className="bi bi-car-front-fill"></i> RENTAL
-          </h1>
+        <Link className="text-B-yellow text-4xl text-center font-bold "
+            to={"/"}>
+              CAR <i className="bi bi-car-front-fill"></i> RENTAL
+            </Link>
           <p className="text-white p-4">
             Enjoy exclusive benefits: easy reservations, exclusive discounts,
             faster check-ins, and personalized recommendations.
