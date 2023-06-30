@@ -120,7 +120,7 @@ export const Car = () => {
         <ul className="carousel">
           <li className="card">
             <div className="img">
-              <img src="Assets/car1.jpg" alt="img" draggable="false" />
+              <img src="assets/car1.jpg" alt="img" draggable="false" />
             </div>
             <h2 className="font-bold text-2xl text-B-yellow m-2">
               Bugatti Chiron
@@ -137,7 +137,7 @@ export const Car = () => {
 
           <li className="card">
             <div className="img">
-              <img src="Assets/car2.jpg" alt="img" draggable="false" />
+              <img src="assets/car2.jpg" alt="img" draggable="false" />
             </div>
             <h2 className="font-bold text-2xl text-B-yellow m-2">
               AC Shelby Cobra
@@ -153,7 +153,7 @@ export const Car = () => {
 
           <li className="card">
             <div className="img">
-              <img src="Assets/car4.jpg" alt="img" draggable="false" />
+              <img src="assets/car4.jpg" alt="img" draggable="false" />
             </div>
             <h2 className="font-bold text-2xl text-B-yellow m-2">
               Dodge Hellcat 2020
@@ -169,7 +169,7 @@ export const Car = () => {
 
           <li className="card">
             <div className="img">
-              <img src="Assets/car7.jpg" alt="img" draggable="false" />
+              <img src="assets/car7.jpg" alt="img" draggable="false" />
             </div>
             <h2 className="font-bold text-2xl text-B-yellow m-2">
               Nissan Silvia S15
@@ -185,7 +185,7 @@ export const Car = () => {
 
           <li className="card">
             <div className="img">
-              <img src="Assets/car9.jpg" alt="img" draggable="false" />
+              <img src="assets/car9.jpg" alt="img" draggable="false" />
             </div>
             <h2 className="font-bold text-2xl text-B-yellow m-2">
               Ford Mustang 2022
@@ -201,7 +201,7 @@ export const Car = () => {
 
           <li className="card">
             <div className="img">
-              <img src="Assets/car10.jpg" alt="img" draggable="false" />
+              <img src="assets/car10.jpg" alt="img" draggable="false" />
             </div>
             <h2 className="font-bold text-2xl text-B-yellow m-2">
               Lamborgini Sian
