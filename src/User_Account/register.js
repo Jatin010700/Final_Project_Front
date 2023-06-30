@@ -17,7 +17,7 @@ export default function Register() {
     event.preventDefault();
 
     try {
-      const response = await fetch('/register', {
+      const response = await fetch('https://car-rental-back.onrender.com/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
