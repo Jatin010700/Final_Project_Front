@@ -1,0 +1,160 @@
+/*-------CAR SLIDER------*/
+.wrapper {
+    max-width: 85em;
+    width: 90%;
+    margin-left: 60px;
+
+    position: relative;
+
+  }
+
+  /*----CARET ICON-----*/
+  .wrapper i {
+    position: absolute;
+    top: 60%;
+
+    height: 50px;
+    width: 50px;
+
+    font-size: 1.25rem;
+    border-radius: 50%;
+    
+    text-align: center;
+    line-height: 50px;
+
+    background: rgb(254, 189, 0);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+
+    z-index: 10;
+    cursor: pointer;
+
+  }
+
+  .wrapper i:active{
+    transform: translateY(-50%) scale(0.85);
+  }
+
+  .wrapper #left{
+    left: -22px;
+  }
+  .wrapper i:last-child{
+    right: -22px;
+  }
+
+  .wrapper .carousel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 4) - 1em);
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+
+    border-radius: 20px;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+
+  }
+
+  .carousel.no-transition {
+    scroll-behavior: auto;
+
+  }
+
+  .carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+
+  .carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+  }
+
+  .carousel :where(.card, .img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #111119;
+  }
+
+  .carousel .card {
+    scroll-snap-align: start;
+
+    height: 25em;
+    border-radius: 20px;
+
+    flex-direction: column;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .card .img img {
+    width: 90%;
+    border-radius: 20px;
+
+  }
+
+  .card>.img>img:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+
+    cursor: pointer;   
+  }
+  @keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }  
+
+
+  @media screen and (max-width: 900px) {
+    .wrapper .carousel {
+      grid-auto-columns: calc((100% / 2) - 9px);
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .wrapper .carousel {
+      grid-auto-columns: 100%;
+    }  
+    .wrapper{
+        margin-left: 25px;
+    }
+  }
+  .wrapper{
+    animation: 2.5s anim-lineUp ease;
+  }
+  @media  screen and (max-width: 1300px) {
+    .para{
+      text-align: center;
+    }
+    .infoBTN{
+      padding: 8px 40px;
+    }
+}
