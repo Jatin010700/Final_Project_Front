@@ -65,13 +65,21 @@ export default function Register() {
   return (
     <div
       id="container"
-      className="flex  w-3/4 ml-44 mt-10 rounded-2xl justify-between mainDiv"
+      className="flex  w-3/4 ml-44 mt-10 rounded-2xl justify-between registerDiv"
     >
       <form
         id="register-form"
         className="flex flex-col text-center bg-white p-4  rounded-tl-2xl rounded-2xl h-full sign-in-form"
         onSubmit={handleSubmit}
       >
+ <Link
+          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-4 mobileHeader "
+          to={"/"}
+        >
+          <span className="text-B-yellow">Car</span>{" "}
+          <i className=" bi bi-car-front-fill"></i> Rental
+        </Link>
+
         <p
           className={`text-center font-bold text-white ${
             success ? "success" : "error"
@@ -79,13 +87,7 @@ export default function Register() {
         >
           {paraValue}
         </p>
-        <Link
-          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-2 mobileHeader "
-          to={"/"}
-        >
-          <span className="text-B-yellow">Car</span>{" "}
-          <i className=" bi bi-car-front-fill"></i> Rental
-        </Link>
+       
         <h2 className="text-B-yellow text-4xl font-bold">REGISTER</h2>
 
         <div className="mt-4 input-field">

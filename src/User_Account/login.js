@@ -57,13 +57,20 @@ export default function Main() {
   return (
     <div
       id="container"
-      className="flex w-3/4 ml-44 mt-24 rounded-2xl justify-between mainDiv"
+      className="flex w-3/4 ml-44 mt-24 rounded-2xl justify-between loginDiv"
     >
       <form
         id="login-form"
         className="flex flex-col text-center bg-white p-4 rounded-tl-2xl rounded-2xl h-full"
         onSubmit={handleSubmit}
-      >
+      > 
+      <Link
+          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-4 mobileHeader "
+          to={"/"}
+        >
+          <span className="text-B-yellow">Car</span>{" "}
+          <i className=" bi bi-car-front-fill"></i> Rental
+        </Link>
         <p
           className={`text-center font-bold text-white ${
             success ? "success" : "error"
@@ -71,13 +78,7 @@ export default function Main() {
         >
           {paraValue}
         </p>
-        <Link
-          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-4 mobileHeader "
-          to={"/"}
-        >
-          <span className="text-B-yellow">Car</span>{" "}
-          <i className=" bi bi-car-front-fill"></i> Rental
-        </Link>
+       
         <h2 className="text-B-yellow text-4xl font-bold">LOG IN</h2>
 
         <div className="mt-4 input-field">

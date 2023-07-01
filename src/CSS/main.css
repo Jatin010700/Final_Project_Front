@@ -50,9 +50,11 @@ body{
       background: white !important;
       margin: 0;
     }
-    .mainDiv{
+    .loginDiv{
       margin: 100px 0px 0px 5px;
-      
+    }
+    .registerDiv{
+      margin: 50px 0px 0px 5px;
     }
       .divContent{
         display: none;
