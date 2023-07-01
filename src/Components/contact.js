@@ -16,11 +16,11 @@ export const Contact = () => {
           </div>
           <div className="flex flex-col gap-2 shadow bg-L-black w-full sm:w-2/5 h-auto sm:h-80 text-white p-4 rounded-2xl mt-10 sm:mt-0">
             <label htmlFor="name">Name <span className="text-B-yellow">*</span></label>
-            <input type="text" id="name" className="rounded-2xl h-10 p-2" placeholder="Enter Name"/>
+            <input type="text" id="name" className="rounded-2xl h-10 p-2 text-L-black" placeholder="Enter Name"/>
             <label htmlFor="email">Email <span className="text-B-yellow">*</span></label>
-            <input type="email" id="email" className="rounded-2xl h-10 p-2" placeholder="Enter Email" />
+            <input type="email" id="email" className="rounded-2xl h-10 p-2 text-L-black" placeholder="Enter Email" />
             <label htmlFor="message">Leave a message <span className="text-B-yellow">*</span></label>
-            <textarea id="message" className="rounded-2xl h-24 p-2" placeholder="Message..."/>
+            <textarea id="message" className="rounded-2xl h-24 p-2 text-L-black" placeholder="Message..."/>
           </div>
         </div>
       </div>

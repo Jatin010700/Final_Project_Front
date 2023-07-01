@@ -40,7 +40,7 @@ export const Review = () => {
                       <div>
                         <p className="text-lg font-semibold">Ameliah</p>
                         <p className="text-sm dark:text-gray-400">
-                          GOD LTD
+                          Teacher
                         </p>
                       </div>
                     </div>
