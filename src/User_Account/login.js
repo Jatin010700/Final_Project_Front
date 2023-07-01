@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginAction } from "../Store/store";
+import { login } from "../User_Action/action";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "./icon";
 
@@ -35,7 +35,7 @@ export default function Main() {
         const data = await response.json();
         setParaValue(data.message);
         setSuccess(true);
-        dispatch(loginAction()); // Dispatch the login action
+        dispatch(login()); // Dispatch the login action
         setTimeout(() => {
           navigate("/");
         }, 2500);
