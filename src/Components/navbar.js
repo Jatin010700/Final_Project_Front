@@ -121,7 +121,7 @@ export const NavBar = () => {
               {userLogin ? (
                 <li>
                   <button
-                    className="p-2 px-4 w-28 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+                    className="p-2 px-6 w-28 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
                     onClick={handleLogout}
                   >
                     LOG OUT
