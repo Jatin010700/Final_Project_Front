@@ -72,7 +72,7 @@ export default function Main() {
           {paraValue}
         </p>
         <Link
-          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-2 mobileHeader "
+          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-4 mobileHeader "
           to={"/"}
         >
           <span className="text-B-yellow">Car</span>{" "}

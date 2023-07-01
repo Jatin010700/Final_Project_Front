@@ -20,25 +20,25 @@ export const NavBar = () => {
       <nav className="flex md:items-center justify-center flex-wrap gap-2">
         <Link
           to="/"
-          className="py-3 px-3 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
+          className="p-2 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
         >
           <span className="underline decoration-B-yellow">Home</span>
         </Link>
         <Link
           to="/soon"
-          className="p-3 px-3 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
+          className="p-2 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
         >
           About
         </Link>
         <Link
           to="/soon"
-          className="p-3 px-3 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
+          className="p-2 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
         >
           Review
         </Link>
         <Link
           to="/contact"
-          className="p-3 px-3 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
+          className="p-2 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
         >
           Contact
         </Link>

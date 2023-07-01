@@ -144,7 +144,8 @@
       grid-auto-columns: 100%;
     }  
     .wrapper{
-        margin-left: 20px;
+        margin-left: 26px;
+        width: 85%
     }
   }
   .wrapper{

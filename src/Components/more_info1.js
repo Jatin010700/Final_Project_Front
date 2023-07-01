@@ -40,7 +40,7 @@ export const Info1 = () => {
     <p className="p-2 bg-B-yellow text-L-black w-72 rounded-2xl font-bold mt-2">
       Seller
     </p>
-    <img src="assets/bugatti-logo.png" alt="" className="w-40 " />
+    <img src="assets/Bugatti-logo.png" alt="" className="w-40 " />
     <div className="text-L-black bg-B-yellow rounded-2xl p-2 text-left w-full mb-2">
       <p className="font-bold text-lg">Bugatti LTD</p>
       <p>123 *******</p>
