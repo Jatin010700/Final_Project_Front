@@ -17,19 +17,22 @@ export default function Register() {
     event.preventDefault();
 
     try {
-      const response = await fetch('https://car-rental-back.onrender.com/register', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstName: fNameValue,
-          lastName: lNameValue,
-          email: emailValue,
-          username: userValue,
-          password: passValue,
-        }),
-      });
+      const response = await fetch(
+        "https://car-rental-back.onrender.com/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstName: fNameValue,
+            lastName: lNameValue,
+            email: emailValue,
+            username: userValue,
+            password: passValue,
+          }),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -76,7 +79,13 @@ export default function Register() {
         >
           {paraValue}
         </p>
-
+        <Link
+          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-2 mobileHeader "
+          to={"/"}
+        >
+          <span className="text-B-yellow">Car</span>{" "}
+          <i className=" bi bi-car-front-fill"></i> Rental
+        </Link>
         <h2 className="text-B-yellow text-4xl font-bold">REGISTER</h2>
 
         <div className="mt-4 input-field">
@@ -173,10 +182,12 @@ export default function Register() {
       {/*------intro-----*/}
       <div className="divContent">
         <div className="flex flex-col p-4 rounded-2xl ml-2 h-full bg-L-black text-justify">
-        <Link className="text-B-yellow text-4xl text-center font-bold "
-            to={"/"}>
-              CAR <i className="bi bi-car-front-fill"></i> RENTAL
-            </Link>
+          <Link
+            className="text-B-yellow text-4xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+            to={"/"}
+          >
+            CAR <i className="bi bi-car-front-fill"></i> RENTAL
+          </Link>
           <p className="text-white p-4">
             Enjoy exclusive benefits: easy reservations, exclusive discounts,
             faster check-ins, and personalized recommendations.

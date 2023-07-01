@@ -17,7 +17,7 @@ export const NavBar = () => {
         <span className="text-B-yellow text-4xl">Car</span>{" "}
         <i className="text-4xl bi bi-car-front-fill"></i> Rental
       </h1>
-      <nav className="flex items-center flex-wrap gap-2">
+      <nav className="flex md:items-center justify-center flex-wrap gap-2">
         <Link
           to="/"
           className="py-3 px-3 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
