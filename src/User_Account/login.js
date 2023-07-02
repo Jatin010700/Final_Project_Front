@@ -107,9 +107,10 @@ export default function Main() {
           />
         </div>
 
-        <p className="flex justify-left mt-2 mb-2 text-sm hover:text-B-yellow font-bold">
+        <Link className="flex justify-left mt-2 mb-2 text-sm hover:text-B-yellow font-bold"
+        to="/forgotPASS">
           Forgot Password?
-        </p>
+        </Link>
 
         <div className="flex gap-2">
           <button
