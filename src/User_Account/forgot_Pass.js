@@ -3,10 +3,14 @@ import { NavBar } from "../Components/navbar";
 import { Footer } from "../Components/footer";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "../CSS/main.css"
 
 export const ForgotPass = () => {
   const [username, setUsername] = useState("");
   const [passValue, setPassValue] = useState("");
+  let [paraValue, setParaValue] = useState("");
+  let [success, setSuccess] = useState("");
+
   const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
@@ -26,28 +30,22 @@ export const ForgotPass = () => {
 
       if (response.ok) {
         const data = await response.json();
-        alert(data.message); // Handle the success message
+        setParaValue(data.message);
+        setSuccess(true) // Handle the success message
         navigate('/login')
       } else {
         const errorData = await response.json();
-        alert(errorData.error); // Handle the error message
+        setParaValue(errorData.error); // Handle the error message
+        setSuccess(false)
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred resetting password.");
+      setParaValue("An error occurred resetting password.");
     }
   };
 
   const isFormValid = () => {
     return username === "" || passValue === "";
-  };
-
-  const handleUsernameChange = (value) => {
-    setUsername(value);
-  };
-
-  const handlePasswordChange = (value) => {
-    setPassValue(value);
   };
 
   return (
@@ -59,6 +57,13 @@ export const ForgotPass = () => {
             Password Reset
           </h1>
           <hr />
+          <p
+          className={`text-center font-bold text-white mt-2 ${
+            success ? "success" : "error"
+          }`}
+        >
+          {paraValue}
+        </p>
           <form className="mt-4 flex flex-col" onSubmit={handleSubmit}>
             <label className="p-2">
               Username<span className="text-B-yellow"> *</span>
@@ -68,7 +73,7 @@ export const ForgotPass = () => {
               className="rounded-full py-2 px-4 bg-G-white text-black  w-full"
               placeholder="Enter Username"
               value={username}
-              onChange={(e) => handleUsernameChange(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <label className="p-2">
               New Password<span className="text-B-yellow"> *</span>
@@ -78,7 +83,7 @@ export const ForgotPass = () => {
               className="rounded-full py-2 px-4 bg-G-white text-black mb-4 w-full"
               placeholder="Enter Password"
               value={passValue}
-              onChange={(e) => handlePasswordChange(e.target.value)}
+              onChange={(e) => setPassValue(e.target.value)}
             />
             <div className="flex flex-col gap-2 text-center md:flex-row md:justify-center md:gap-4">
               <Link

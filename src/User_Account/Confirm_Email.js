@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { NavBar } from "../Components/navbar";
 import { Footer } from "../Components/footer";
 import { Link } from "react-router-dom";
+import "../CSS/main.css"
 
 export const ConfirmEmail = () => {
   const [emailValue, setEmailValue] = useState("");
+  let [paraValue, setParaValue] = useState("");
+  let [success, setSuccess] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -22,14 +25,16 @@ export const ConfirmEmail = () => {
 console.log (response)
       if (response.ok) {
         const data = await response.json();
-        alert(data.message); // Handle the success message
+        setParaValue(data.message); // Handle the success message
+        setSuccess(true);
       } else {
         const errorData = await response.json();
-        alert(errorData.error); // Handle the error message
+        setParaValue(errorData.error); // Handle the error message
+        setSuccess(false)
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred during email sending.");
+      setParaValue("An error occurred during email sending.");
     }
   };
 
@@ -46,7 +51,13 @@ console.log (response)
             Send Confirmation
           </h1>
           <hr />
-
+          <p
+          className={`text-center font-bold text-white mt-2 ${
+            success ? "success" : "error"
+          }`}
+        >
+          {paraValue}
+        </p>
           <form className=" flex flex-col" onSubmit={handleSubmit}>
             <label className="p-2">
               Email<span className="text-B-yellow"> *</span>
