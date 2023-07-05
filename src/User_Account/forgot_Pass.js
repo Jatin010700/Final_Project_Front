@@ -32,7 +32,10 @@ export const ForgotPass = () => {
         const data = await response.json();
         setParaValue(data.message);
         setSuccess(true) // Handle the success message
-        navigate('/login')
+        setTimeout(() => {
+          navigate('/login')
+        }, 2500);
+        
       } else {
         const errorData = await response.json();
         setParaValue(errorData.error); // Handle the error message
