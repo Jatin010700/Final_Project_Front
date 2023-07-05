@@ -41,7 +41,7 @@ console.log (response)
     <>
       <NavBar />
       <div className="bg-white p-4 md:p-20 flex justify-center items-center">
-        <div className="flex flex-wrap flex-col w-full max-w-md bg-L-black text-white  md:p-8 rounded-2xl">
+        <div className="flex flex-wrap flex-col w-full max-w-md bg-L-black p-4 text-white  md:p-8 rounded-2xl">
           <h1 className="font-bold text-2xl md:text-3xl text-center mb-4">
             Send Confirmation
           </h1>
@@ -62,7 +62,7 @@ console.log (response)
             <div className="flex flex-col gap-2 text-center md:flex-row md:justify-center md:gap-4">
               <Link
                 className="bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
-                to="/login"
+                to="/forgotForm"
               >
                 Cancel
               </Link>
