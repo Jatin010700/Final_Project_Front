@@ -52,12 +52,12 @@ export const ForgotPass = () => {
   };
 
   return (
-    <>
+<>
       <NavBar />
-      <div className="bg-white p-5 md:p-20 flex justify-center items-center">
-        <div className="flex flex-wrap flex-col w-full max-w-md bg-L-black text-white p-4 md:p-8 rounded-2xl">
-          <h1 className="font-bold  text-2xl md:text-3xl text-center mb-4">
-            Password Reset
+      <div className="bg-white p-4 md:p-20 flex justify-center items-center">
+        <div className="flex flex-wrap flex-col w-full max-w-md bg-L-black p-4 text-white  md:p-8 rounded-2xl">
+          <h1 className="font-bold text-2xl md:text-3xl text-center mb-4">
+            Reset Password
           </h1>
           <hr />
           <p
@@ -67,14 +67,15 @@ export const ForgotPass = () => {
         >
           {paraValue}
         </p>
-          <form className="mt-4 flex flex-col" onSubmit={handleSubmit}>
+          <form className=" flex flex-col" onSubmit={handleSubmit}>
             <label className="p-2">
               Username<span className="text-B-yellow"> *</span>
             </label>
             <input
               type="text"
-              className="rounded-full py-2 px-4 bg-G-white text-black  w-full"
+              className="rounded-full py-2 px-4 bg-G-white text-black w-full"
               placeholder="Enter Username"
+              autoComplete="off"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -84,14 +85,15 @@ export const ForgotPass = () => {
             <input
               type="password"
               className="rounded-full py-2 px-4 bg-G-white text-black mb-4 w-full"
-              placeholder="Enter Password"
+              placeholder="Enter New Password"
+              autoComplete="off"
               value={passValue}
               onChange={(e) => setPassValue(e.target.value)}
             />
             <div className="flex flex-col gap-2 text-center md:flex-row md:justify-center md:gap-4">
               <Link
-                className=" bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
-                to="/ConfirmEmail"
+                className="bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+                to="/login"
               >
                 Cancel
               </Link>
@@ -106,7 +108,6 @@ export const ForgotPass = () => {
           </form>
         </div>
       </div>
-
       <Footer />
     </>
   );
