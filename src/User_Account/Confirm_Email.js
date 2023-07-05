@@ -1,0 +1,90 @@
+import React, { useState } from "react";
+import { NavBar } from "../Components/navbar";
+import { Footer } from "../Components/footer";
+import { Link } from "react-router-dom";
+
+export const ConfirmEmail = () => {
+  const [emailValue, setEmailValue] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("https://car-rental-back.onrender.com/confirmLink", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailValue,
+        }),
+      });
+console.log (response)
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message); // Handle the success message
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error); // Handle the error message
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred during email sending.");
+    }
+  };
+
+  const isFormValid = () => {
+    return emailValue === "";
+  };
+
+  return (
+    <>
+      <NavBar />
+      <div className="bg-white p-4 md:p-20 flex justify-center items-center">
+        <div className="flex flex-wrap flex-col w-full max-w-md bg-L-black text-white  md:p-8 rounded-2xl">
+          <h1 className="font-bold text-2xl md:text-3xl text-center mb-4">
+            Send Confirmation
+          </h1>
+          <hr />
+
+          <form className=" flex flex-col" onSubmit={handleSubmit}>
+            <label className="p-2">
+              Email<span className="text-B-yellow"> *</span>
+            </label>
+            <input
+              type="email"
+              className="rounded-full py-2 px-4 bg-G-white text-black mb-4 w-full"
+              placeholder="Enter your Email"
+              autoComplete="off"
+              value={emailValue}
+              onChange={(e) => setEmailValue(e.target.value)}
+            />
+            <div className="flex flex-col gap-2 text-center md:flex-row md:justify-center md:gap-4">
+              <Link
+                className="bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+                to="/login"
+              >
+                Cancel
+              </Link>
+              <button
+                type="submit"
+                className=" bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 btn"
+                disabled={isFormValid()}
+              >
+                Confirm
+              </button>
+            </div>
+            <hr className="mt-2" />
+            <p className="text-sm text-center p-2">
+              * <span className="font-bold text-B-yellow">Note:</span> Enter the
+              email you used the most like{" "}
+              <span className="text-B-yellow">Gmail</span> to receive your
+              confirmation link!
+            </p>
+          </form>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+};

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./User_Account/login";
 import Register from "./User_Account/register";
 import { ForgotPass } from "./User_Account/forgot_Pass";
+import { ConfirmEmail } from "./User_Account/Confirm_Email";
 
 import { Home } from "./Components/home";
 import { Info1 } from "./Components/more_info1";
@@ -21,8 +22,10 @@ function App() {
 
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Main />} />
-          <Route path="/forgotPASS" element={<ForgotPass/>} />
-          
+      
+          <Route path="/forgotPass" element={<ForgotPass/>}  />
+          <Route path="/ConfirmEmail" element={<ConfirmEmail/>}  />
+
           <Route path="*" element={<Error />} />
           <Route path="/soon" element={<Soon />} />
         </Routes>

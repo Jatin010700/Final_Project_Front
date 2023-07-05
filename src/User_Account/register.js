@@ -40,7 +40,7 @@ export default function Register() {
         setSuccess(true);
 
         setTimeout(() => {
-          navigate("/");
+          navigate("/login");
         }, 3000);
       } else {
         const errorData = await response.json();
