@@ -62,7 +62,7 @@ console.log (response)
             <div className="flex flex-col gap-2 text-center md:flex-row md:justify-center md:gap-4">
               <Link
                 className="bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
-                to="/forgotForm"
+                to="/login"
               >
                 Cancel
               </Link>
