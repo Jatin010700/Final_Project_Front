@@ -82,7 +82,7 @@ console.log (response)
                 className=" bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 btn"
                 disabled={isFormValid()}
               >
-                Confirm
+                Submit
               </button>
             </div>
             <hr className="mt-2" />

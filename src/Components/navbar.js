@@ -38,8 +38,8 @@ export const NavBar = () => {
       <nav className="hidden md:flex md:items-center justify-center flex-wrap gap-2">
         {/* Navigation links */}
         <NavButton to="/" text="Home" />
+        <NavButton to="/soon" text="Rent Car" />
         <NavButton to="/soon" text="About" />
-        <NavButton to="/soon" text="Review" />
         <NavButton to="/contact" text="Contact" />
         {userLogin ? (
           <>
