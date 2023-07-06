@@ -94,8 +94,8 @@ export default function Register() {
           <input
             type="text"
             id="firstName"
-            className=" mb-2 bg-G-white p-2 rounded-3xl w-80 border-2 border-B-yellow"
-            placeholder="   First Name"
+            className=" mb-2 bg-G-white py-2 px-4 rounded-3xl w-80 border-2 border-B-yellow"
+            placeholder="First Name"
             autoComplete="off"
             required
             value={fNameValue}
@@ -107,8 +107,8 @@ export default function Register() {
           <input
             type="text"
             id="lastName"
-            className=" mb-2 bg-G-white p-2 rounded-3xl w-80 border-2 border-B-yellow"
-            placeholder="   Last Name"
+            className=" mb-2 bg-G-white py-2 px-4 rounded-3xl w-80 border-2 border-B-yellow"
+            placeholder="Last Name"
             autoComplete="off"
             required
             value={lNameValue}
@@ -120,8 +120,8 @@ export default function Register() {
           <input
             type="text"
             id="userName"
-            className=" mb-2 bg-G-white p-2 rounded-3xl w-80 border-2 border-B-yellow"
-            placeholder="   Username"
+            className=" mb-2 bg-G-white py-2 px-4 rounded-3xl w-80 border-2 border-B-yellow"
+            placeholder="Username"
             autoComplete="off"
             required
             value={userValue}
@@ -133,8 +133,8 @@ export default function Register() {
           <input
             type="email"
             id="email"
-            className=" mb-2 bg-G-white p-2 rounded-3xl w-80 border-2 border-B-yellow"
-            placeholder="   Email"
+            className=" mb-2 bg-G-white py-2 px-4 rounded-3xl w-80 border-2 border-B-yellow"
+            placeholder="Email"
             autoComplete="off"
             required
             value={emailValue}
@@ -146,8 +146,8 @@ export default function Register() {
           <input
             type="password"
             id="password"
-            className="mb-2 bg-G-white p-2 rounded-3xl w-80 border-2 border-B-yellow"
-            placeholder="   Password"
+            className="mb-2 bg-G-white py-2 px-4 rounded-3xl w-80 border-2 border-B-yellow"
+            placeholder="Password"
             autoComplete="off"
             required
             value={passValue}

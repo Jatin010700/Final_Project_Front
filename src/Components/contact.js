@@ -23,7 +23,7 @@ export const Contact = () => {
             <input
               type="text"
               id="name"
-              className="rounded-2xl h-10 p-2 text-L-black"
+              className="rounded-full h-10 py-2 px-4 text-L-black"
               placeholder="Enter Name"
               autoComplete="off"
             />
@@ -33,7 +33,7 @@ export const Contact = () => {
             <input
               type="email"
               id="email"
-              className="rounded-2xl h-10 p-2 text-L-black"
+              className="rounded-full h-10 py-2 px-4 text-L-black"
               placeholder="Enter Email"
               autoComplete="off"
             />
@@ -42,7 +42,7 @@ export const Contact = () => {
             </label>
             <textarea
               id="message"
-              className="rounded-2xl h-24 p-2 text-L-black"
+              className="rounded-2xl h-24 py-2 px-4 text-L-black"
               placeholder="Message..."
             />
           </div>

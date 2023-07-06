@@ -145,7 +145,7 @@ export const Car = () => {
             <p className="text-white para">Price: $500,000 | $7,000/month </p>
             <div className="flex flex-wrap gap-2 p-2">
             <Link className="bg-B-yellow rounded-full py-2 px-20 font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 infoBTN" 
-              to="/info1">
+              to="/soon">
               More Info
               </Link>
             </div>{" "}
@@ -161,7 +161,7 @@ export const Car = () => {
             <p className="text-white para">Price: $450,000 | $450/month</p>
             <div className="flex flex-wrap gap-2 p-2">
             <Link className="bg-B-yellow rounded-full py-2 px-20 font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 infoBTN" 
-              to="/info1">
+              to="/soon">
               More Info
               </Link>
             </div>
@@ -177,7 +177,7 @@ export const Car = () => {
             <p className="text-white para">Price: $150,000 | $200/month</p>
             <div className="flex flex-wrap gap-2 p-2">
             <Link className="bg-B-yellow rounded-full py-2 px-20 font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 infoBTN" 
-              to="/info1">
+              to="/soon">
               More Info
               </Link>
             </div>
@@ -193,7 +193,7 @@ export const Car = () => {
             <p className="text-white para">Price: $250,000 | $500/month</p>
             <div className="flex flex-wrap gap-2 p-2">
             <Link className="bg-B-yellow rounded-full py-2 px-20 font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 infoBTN" 
-              to="/info1">
+              to="/soon">
               More Info
               </Link>
             </div>
@@ -209,7 +209,7 @@ export const Car = () => {
             <p className="text-white para">Price: $550,000 | $700/month</p>
             <div className="flex flex-wrap gap-2 p-2">
             <Link className="bg-B-yellow rounded-full py-2 px-20 font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 infoBTN" 
-              to="/info1">
+              to="/soon">
               More Info
               </Link>
             </div>

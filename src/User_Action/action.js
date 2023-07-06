@@ -3,9 +3,14 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 
 // Action creators
-export const login = () => {
-  return { type: LOGIN };
+// userActions.js
+export const login = (username) => {
+  return {
+    type: 'LOGIN',
+    payload: username,
+  };
 };
+
 
 export const logout = () => {
   return { type: LOGOUT };

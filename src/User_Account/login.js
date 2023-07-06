@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { login } from "../User_Action/action";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "./icon";
@@ -10,6 +10,7 @@ export default function Main() {
   const [passValue, setPassValue] = useState("");
   let [paraValue, setParaValue] = useState("");
   let [success, setSuccess] = useState("");
+  const username = useSelector((state) => state.username);
 
   const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ export default function Main() {
         const data = await response.json();
         setParaValue(data.message);
         setSuccess(true);
-        dispatch(login()); // Dispatch the login action
+        dispatch(login(username)); // Dispatch the login action
         setTimeout(() => {
           navigate("/");
         }, 2500);

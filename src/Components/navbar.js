@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../User_Action/action";
+import { ProfileMenu } from "./profile_menu";
 
 export const NavBar = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const dispatch = useDispatch();
   const [showMobileNav, setShowMobileNav] = useState(false);
-
+  
   const handleLogout = () => {
     dispatch(logout());
   };
@@ -43,7 +44,7 @@ export const NavBar = () => {
         <NavButton to="/contact" text="Contact" />
         {userLogin ? (
           <>
-            <i className="text-4xl text-B-yellow hover:text-L-black transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 bi bi-person-circle"></i>
+            <ProfileMenu />
             <button
               className="p-2 px-4 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
               onClick={handleLogout}
@@ -91,17 +92,25 @@ export const NavBar = () => {
               <li>
                 <NavButton to="/contact" text="Contact" />
               </li>
+
               <div className="flex gap-2">
                 {userLogin ? (
-                  <li>
-                    <p>Profile</p>
+                  <ul className="flex flex-col gap-3">
+                    <li>
+                      <Link
+                        to="#"
+                        className="p-2 ml-6 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
+                      >
+                        Profile
+                      </Link>
+                    </li>
                     <button
                       className="p-2 px-6 w-28 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
                       onClick={handleLogout}
                     >
                       LOG OUT
                     </button>
-                  </li>
+                  </ul>
                 ) : (
                   <>
                     <li>
