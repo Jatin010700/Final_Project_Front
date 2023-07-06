@@ -10,6 +10,7 @@ import { Contact } from "./Components/contact";
 
 import { Error } from "./404Error";
 import { Soon } from "./Coming_Soon";
+import { SearchCar } from "./Components/Search_Car";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/info1" element={<Info1 />} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/searchCar" element={<SearchCar/>} />
 
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Main />} />

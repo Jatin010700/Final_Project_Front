@@ -32,14 +32,14 @@ export const NavBar = () => {
 
   return (
     <div className="flex flex-wrap justify-between items-center bg-white p-2 w-full sticky top-0 z-50 shadow">
-      <h1 className="font-bold p-2 text-2xl">
+      <Link to="/" className="font-bold p-2 text-2xl">
         <span className="text-B-yellow text-4xl">Car</span>{" "}
         <i className="text-4xl bi bi-car-front-fill"></i> Rental
-      </h1>
+      </Link>
       <nav className="hidden md:flex md:items-center justify-center flex-wrap gap-2">
         {/* Navigation links */}
         <NavButton to="/" text="Home" />
-        <NavButton to="/soon" text="Rent Car" />
+        <NavButton to="/searchCar" text="Rent Car" />
         <NavButton to="/soon" text="About" />
         <NavButton to="/contact" text="Contact" />
         {userLogin ? (
@@ -84,10 +84,10 @@ export const NavBar = () => {
                 <NavButton to="/" text="Home" />
               </li>
               <li>
-                <NavButton to="/soon" text="About" />
+                <NavButton to="/searchCar" text="Car Rent" />
               </li>
               <li>
-                <NavButton to="/soon" text="Review" />
+                <NavButton to="/soon" text="About" />
               </li>
               <li>
                 <NavButton to="/contact" text="Contact" />
@@ -98,7 +98,7 @@ export const NavBar = () => {
                   <ul className="flex flex-col gap-3">
                     <li>
                       <Link
-                        to="#"
+                        to="/soon"
                         className="p-2 ml-6 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
                       >
                         Profile

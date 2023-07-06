@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBar } from "./navbar";
 import { Footer } from "./footer";
+import { Link } from "react-router-dom";
 
 export const Info1 = () => {
   return (
@@ -22,7 +23,7 @@ export const Info1 = () => {
             <img src="assets/car1.jpg" alt="" className="rounded-2xl" />
           </div>
           <div className="flex flex-col gap-2 border-2 bg-L-black text-white border-L-black rounded-2xl p-4 ">
-            <p className="p-2 bg-B-yellow text-L-black w-full md:w-96  rounded-2xl font-bold">
+            <p className="p-2 bg-B-yellow text-L-black w-full md:w-96  rounded-full font-bold">
               Duty-Paid
             </p>
             <p className="text-2xl p-2">$750,000</p>
@@ -39,14 +40,14 @@ export const Info1 = () => {
               <span className="text-2xl">$1,500/</span>month
             </p>
             <hr className="text-B-yellow" />
-            <p className="p-2 bg-B-yellow text-L-black rounded-2xl font-bold w-full md:w-96 ">
+            <p className="p-2 bg-B-yellow text-L-black rounded-full font-bold w-full md:w-96 ">
               Seller
             </p>
             <div className="flex justify-center">
             <img src="assets/Bugatti-logo.png" alt="" className="w-40 text" /></div>
-            <button className="border-2 border-B-yellow rounded-full  py-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 hover:bg-B-yellow hover:text-L-black font-bold">
+            <Link to="/soon" className="border-2 border-B-yellow rounded-full text-center  py-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 hover:bg-B-yellow hover:text-L-black font-bold">
               Rent Now
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -102,6 +103,8 @@ export const Info1 = () => {
               className="rounded-2xl p-2  w-full md:w-96 border-2 border-L-black"
               placeholder="Leave a review"
             />
+            <button className="py-2 px-2 mt-2 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150">
+            Submit</button>
           </div>
         </div>
       </div>

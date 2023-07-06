@@ -35,7 +35,6 @@
     "eject": "react-scripts eject"
   },
   "proxy": "https://car-rental-back.onrender.com/",
-  
   "eslintConfig": {
     "extends": [
       "react-app",
