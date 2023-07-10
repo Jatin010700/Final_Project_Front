@@ -11,7 +11,7 @@ export const Footer = () => {
           <p>Phone: (123) 456-7890</p>
           <p>Email: info@example.com</p>
           <hr className="m-2" />
-          <p>&copy; 2023 Car Rental Company. All rights reserved.</p>
+          <p>&copy; 2023 Car Rental Company. <br/> All rights reserved by Jatin Oomajee.</p>
         </div>
 
         <div className="flex items-center p-4">

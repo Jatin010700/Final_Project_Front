@@ -39,18 +39,12 @@ export const NavBar = () => {
       <nav className="hidden md:flex md:items-center justify-center flex-wrap gap-2">
         {/* Navigation links */}
         <NavButton to="/" text="Home" />
-        <NavButton to="/searchCar" text="Rent Car" />
+        <NavButton to="/carlist" text="Rent Car" />
         <NavButton to="/soon" text="About" />
         <NavButton to="/contact" text="Contact" />
         {userLogin ? (
           <>
             <ProfileMenu />
-            <button
-              className="p-2 px-4 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
-              onClick={handleLogout}
-            >
-              LOG OUT
-            </button>
           </>
         ) : (
           <>
@@ -79,12 +73,12 @@ export const NavBar = () => {
         {/* Mobile navbar */}
         {showMobileNav && (
           <div className="absolute top-16 right-0 mt-3 mr-8 w-80 bg-white p-3 shadow-lg rounded-2xl transition duration-300 ease-in-out transform">
-            <ul className="flex flex-col items-center gap-3">
+            <ul className="flex flex-col text-center items-center gap-3">
               <li>
                 <NavButton to="/" text="Home" />
               </li>
               <li>
-                <NavButton to="/searchCar" text="Car Rent" />
+                <NavButton to="/carlist" text="Car Rent" />
               </li>
               <li>
                 <NavButton to="/soon" text="About" />
@@ -99,9 +93,25 @@ export const NavBar = () => {
                     <li>
                       <Link
                         to="/soon"
-                        className="p-2 ml-6 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
+                        className="p-2 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
                       >
-                        Profile
+                        Account
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/soon"
+                        className="p-2 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
+                      >
+                        Billings
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/soon"
+                        className="p-2 rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
+                      >
+                        Settings
                       </Link>
                     </li>
                     <button

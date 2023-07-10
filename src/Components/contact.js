@@ -16,7 +16,7 @@ export const Contact = () => {
             </p>
             <img src="assets/contact.jpg" alt="" />
           </div>
-          <div className="flex flex-col gap-2 shadow bg-L-black w-full sm:w-2/5 h-80 sm:h-80 text-white p-4 rounded-2xl mt-10 sm:mt-24">
+          <div className="flex flex-col gap-2 shadow bg-L-black w-full sm:w-2/5 h-96 sm:h-96 text-white p-4 rounded-2xl mt-10 sm:mt-24">
             <label htmlFor="name">
               Name <span className="text-B-yellow">*</span>
             </label>
@@ -45,6 +45,9 @@ export const Contact = () => {
               className="rounded-2xl h-24 py-2 px-4 text-L-black"
               placeholder="Message..."
             />
+            <button className="py-2 px-2 w-full sm:w-2/4 mt-2 bg-B-yellow text-L-black rounded-full font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150">
+              Submit
+            </button>
           </div>
         </div>
       </div>
