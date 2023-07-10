@@ -117,7 +117,7 @@ export const SearchCar1 = () => {
     <>
       <NavBar />
       <div className="bg-white">
-        <div className="pt-4 flex justify-center">
+        <div className="pt-4 mr-5 flex justify-center">
           <i className="relative top-2 left-10 text-lg text-grey hover:text-B-yellow bi bi-search"></i>
           <input
             type="text"
