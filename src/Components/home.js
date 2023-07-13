@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavBar } from './navbar';
 import { Header } from './header';
-import { Car } from './car';
+import AdvancedCarousel from './car';
 import { ChooseUs } from './chooseUs';
 import { Review } from './reviews';
 import { Footer } from './footer';
@@ -14,7 +14,7 @@ export function Home() {
     <>
       <NavBar userLogin={userLogin} />
       <Header />
-      <Car />
+      <AdvancedCarousel />
       <ChooseUs />
       <Review />
       <Footer />

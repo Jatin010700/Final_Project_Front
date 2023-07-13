@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { NavBar } from "../navbar";
 import { Footer } from "../footer";
 import { NumberPages } from "../number_of_page";
 
 const ListOfCar = ({ name, image, info, icon, searchQuery }) => {
   const filteredCars = name.toLowerCase().includes(searchQuery.toLowerCase());
+
 
   if (!filteredCars) {
     return null; // Skip rendering if the car doesn't match the search query
@@ -15,6 +16,7 @@ const ListOfCar = ({ name, image, info, icon, searchQuery }) => {
       <p className="text-4xl mb-4 font-bold text-B-yellow text-uppercase">
         {name}
       </p>
+
       <img
         src={image}
         alt=""
@@ -43,11 +45,36 @@ const ListOfCar = ({ name, image, info, icon, searchQuery }) => {
 
 export const SearchCar = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [imageData, setImageData] = useState([]);
 
+  const imageIds = useMemo(() => [1,2,3,4,5,6], []); // Example image IDs
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const imagePromises = imageIds.map(async (id) => {
+          const response = await fetch(`https://car-rental-back.onrender.com/api/images/${id}`);
+          if (!response.ok) {
+            throw new Error(`Error retrieving image with ID ${id}`);
+          }
+          const blob = await response.blob();
+          return URL.createObjectURL(blob);
+        });
+
+        const imageUrls = await Promise.all(imagePromises);
+        setImageData(imageUrls);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchImages();
+  }, [imageIds]);
+  
   const carData = [
     {
       name: "Bugatti",
-      image: "assets/car1.jpg",
+      image:`${imageData[1]}`,
       info: "$750,000 | $1500/month",
       icon: [
         <i className="bi bi-speedometer"></i>,
@@ -57,7 +84,7 @@ export const SearchCar = () => {
     },
     {
       name: "Dodge",
-      image: "assets/car4.jpg",
+      image: `${imageData[2]}`,
       info: "$450,000 | $450/month",
       icon: [
         <i className="bi bi-speedometer"></i>,
@@ -67,7 +94,7 @@ export const SearchCar = () => {
     },
     {
       name: "Nissan",
-      image: "assets/car7.jpg",
+      image: `${imageData[3]}`,
       info: "$150,000 | $200/month",
       icon: [
         <i className="bi bi-speedometer"></i>,
@@ -77,7 +104,7 @@ export const SearchCar = () => {
     },
     {
       name: "Dodge",
-      image: "assets/car4.jpg",
+      image: `${imageData[2]}`,
       info: "$450,000 | $450/month",
       icon: [
         <i className="bi bi-speedometer"></i>,
@@ -87,7 +114,7 @@ export const SearchCar = () => {
     },
     {
       name: "Nissan",
-      image: "assets/car7.jpg",
+      image: `${imageData[3]}`,
       info: "$150,000 | $200/month",
       icon: [
         <i className="bi bi-speedometer"></i>,
@@ -97,7 +124,7 @@ export const SearchCar = () => {
     },
     {
       name: "Bugatti",
-      image: "assets/car1.jpg",
+      image: `${imageData[1]}`,
       info: "$750,000 | $1500/month",
       icon: [
         <i className="bi bi-speedometer"></i>,
