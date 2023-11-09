@@ -48,7 +48,6 @@ export default function Main() {
       // // Store the token in a secure way (e.g., localStorage or cookies)
       // localStorage.setItem("token", token);
 
-
         dispatch(setUsernameState(userValue))
         dispatch(login());
         setTimeout(() => {

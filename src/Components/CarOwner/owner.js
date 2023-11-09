@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { NavBar } from "../navbar";
 import { Footer } from "../footer";
 import { dotPulse } from "ldrs";
+import { useSelector } from "react-redux";
 dotPulse.register();
 
 export const CarOwner = () => {
@@ -12,6 +13,7 @@ export const CarOwner = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef(null);
+  const userName = useSelector((state) => state.userName);
   //   const handleImageChange = (e) => {
   //     const file = e.target.files[0];
   //     setImage(file);
@@ -38,6 +40,7 @@ export const CarOwner = () => {
     // }
 
       const formData = new FormData();
+      formData.append("username", userName);
       formData.append("carName", carName);
       formData.append("price", price);
       formData.append("rent", rent);
@@ -93,6 +96,9 @@ export const CarOwner = () => {
             onSubmit={handleSubmit}
             className="rounded-2xl shadow p-4 mt-2 w-full sm:w-4/6 md:w-2/6 bg-L-black text-white flex flex-col gap-2"
           >
+            <h1 className="text-center pb-2 text-2xl">
+              {userName}
+            </h1>
             <div className="file-upload">
               <label
                 htmlFor="fileInput"
@@ -103,8 +109,7 @@ export const CarOwner = () => {
                 <span
                   className="bg-G-white text-dark ml-2 py-2 px-4 rounded-lg cursor-pointer font-bold
                 hover:bg-B-yellow transition ease-in-out hover:scale-110 duration-150"
-                >
-                  {selectedFile ? selectedFile.name : "Choose File"}
+                >{selectedFile ? selectedFile.name : "Choose File"}
                 </span>
               </label>
               <input
