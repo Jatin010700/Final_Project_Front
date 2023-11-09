@@ -4,7 +4,7 @@ export const Review = () => {
   return (
     <div className="bg-white">
       <section className="dark:bg-gray-800 dark:text-gray-100">
-        <div className="container px-6 py-12 mx-auto">
+        <div className="container px-6 py-12  mx-auto">
           <div className="grid items-center gap-4 xl:grid-cols-5">
             <div className="max-w-2xl mx-auto my-8 space-y-4 text-center xl:col-span-2 xl:text-left">
               <h1 className="text-center font-bold text-4xl p-4">

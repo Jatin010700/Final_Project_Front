@@ -8,7 +8,7 @@ const iconList = [
   <i className="bi bi-instagram"></i>,
 ];
 const iconElements = iconList.map((icon, index) => (
-  <div key={index} className="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 iconStyle">
+  <div key={index} className="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 cursor-pointer iconStyle">
     {icon}
   </div>
 ));

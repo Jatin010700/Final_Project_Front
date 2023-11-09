@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../CSS/main.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "./icon";
+import { Preloader } from "../Components/preloader";
 
 export default function Register() {
   const [fNameValue, setFnameValue] = useState("");
@@ -11,14 +12,18 @@ export default function Register() {
   const [passValue, setPassValue] = useState("");
   let [paraValue, setParaValue] = useState("");
   let [success, setSuccess] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
+
+  // https://car-rental-back.onrender.com/register
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const response = await fetch(
-        "https://car-rental-back.onrender.com/register",
+        "http://localhost:5000/register",
         {
           method: "POST",
           headers: {
@@ -63,9 +68,10 @@ export default function Register() {
     );
   };
   return (
+    <div className="flex justify-center items-center ">
     <div
       id="container"
-      className="flex  w-3/4 ml-44 mt-10 rounded-2xl justify-between registerDiv"
+      className="flex  w-3/4 mt-16 rounded-2xl justify-between registerDiv"
     >
       <form
         id="register-form"
@@ -159,14 +165,14 @@ export default function Register() {
           <button
             type="submit"
             id="registerBTN"
-            className="w-2/4  bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 btn"
+            className="w-2/4  bg-L-black text-B-yellow hover:bg-L-black hover:text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow hover:border-B-yellow transition ease-in-out hover:scale-110 duration-150 btn"
             disabled={isFormValid()}
           >
-            REGISTER
+            {isLoading ? <Preloader/> : "REGISTER"}
           </button>
 
           <Link
-            className="w-2/4 bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+            className="w-2/4 bg-L-black text-B-yellow hover:bg-L-black hover:text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow hover:border-B-yellow transition ease-in-out hover:scale-110 duration-150"
             to="/login"
           >
             LOGIN
@@ -185,7 +191,7 @@ export default function Register() {
       <div className="divContent">
         <div className="flex flex-col p-4 rounded-2xl ml-2 h-full bg-L-black text-justify">
           <Link
-            className="text-B-yellow text-4xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+            className="text-B-yellow text-4xl text-center font-bold transition ease-in-out hover:scale-110 duration-150"
             to={"/"}
           >
             CAR <i className="bi bi-car-front-fill"></i> RENTAL
@@ -223,6 +229,8 @@ export default function Register() {
           </p>
         </div>
       </div>
+    </div>
+    
     </div>
   );
 }

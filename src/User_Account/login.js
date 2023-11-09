@@ -1,23 +1,30 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../User_Action/action";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "./icon";
+import { Preloader } from "../Components/preloader";
+import { setUsernameState } from "../Store/store";
 
 export default function Main() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [userValue, setUserValue] = useState("");
   const [passValue, setPassValue] = useState("");
   let [paraValue, setParaValue] = useState("");
   let [success, setSuccess] = useState("");
-  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+
+  // https://car-rental-back.onrender.com/login
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      setIsLoading(true);
       const response = await fetch(
-        "https://car-rental-back.onrender.com/login",
+        "http://localhost:5000/login",
         {
           method: "POST",
           headers: {
@@ -34,7 +41,16 @@ export default function Main() {
         const data = await response.json();
         setParaValue(data.message);
         setSuccess(true);
-        dispatch(login()); // Dispatch the login action
+
+      //      // Assuming your JWT token is returned in data.token
+      // const token = data.token;
+
+      // // Store the token in a secure way (e.g., localStorage or cookies)
+      // localStorage.setItem("token", token);
+
+
+        dispatch(setUsernameState(userValue))
+        dispatch(login());
         setTimeout(() => {
           navigate("/");
         }, 2500);
@@ -54,15 +70,19 @@ export default function Main() {
   };
 
   return (
+    <div className="flex justify-center items-center ">
+
     <div
       id="container"
-      className="flex w-3/4 ml-44 mt-24 rounded-2xl justify-between loginDiv"
+      className="flex w-3/4 gap-2 mt-28 rounded-2xl loginDiv"
     >
+      
       <form
         id="login-form"
         className="flex flex-col text-center bg-white p-4 rounded-tl-2xl rounded-2xl h-full"
         onSubmit={handleSubmit}
       > 
+      
       <Link
           className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-4 mobileHeader "
           to={"/"}
@@ -84,8 +104,8 @@ export default function Main() {
           <input
             type="text"
             id="getUsername"
-            className="mb-2 bg-G-white p-2 rounded-3xl w-80 border-2 border-B-yellow"
-            placeholder=" Username"
+            className="mb-2 bg-G-white  py-2 px-4  rounded-3xl w-80 border-2 border-B-yellow"
+            placeholder="Username"
             autoComplete="off"
             value={userValue}
             onChange={(e) => setUserValue(e.target.value)}
@@ -97,8 +117,8 @@ export default function Main() {
           <input
             type="password"
             id="getPassword"
-            className="mb-2 bg-G-white p-2 rounded-3xl w-80 border-2 border-B-yellow"
-            placeholder=" Password"
+            className="mb-2 bg-G-white  py-2 px-4 rounded-3xl w-80 border-2 border-B-yellow"
+            placeholder="Password"
             autoComplete="off"
             value={passValue}
             onChange={(e) => setPassValue(e.target.value)}
@@ -115,15 +135,15 @@ export default function Main() {
           <button
             type="submit"
             id="loginBTN"
-            className="w-2/4 bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 btn"
+            className="w-2/4 bg-L-black text-B-yellow hover:bg-L-black hover:text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow hover:border-B-yellow transition ease-in-out hover:scale-110 duration-150 btn"
             disabled={isFormValid()}
             onClick={handleSubmit}
           >
-            LOGIN
+            {isLoading ? <Preloader/> : "LOGIN"}
           </button>
 
           <Link
-            className="w-2/4 bg-L-black hover:bg-B-yellow hover:text-L-black text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+            className="w-2/4 bg-L-black text-B-yellow hover:bg-L-black hover:text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow hover:border-B-yellow transition ease-in-out hover:scale-110 duration-150"
             to="/register"
           >
             REGISTER
@@ -140,9 +160,9 @@ export default function Main() {
 
       {/*------intro-----*/}
       <div className="divContent ">
-        <div className="flex flex-col p-4 rounded-2xl ml-2 h-full bg-L-black text-justify">
+        <div className="flex flex-col p-4 rounded-2xl h-full bg-L-black text-justify">
           <Link
-            className="text-B-yellow text-4xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+            className="text-B-yellow text-4xl text-center font-bold transition ease-in-out hover:scale-110 duration-150"
             to={"/"}
           >
             CAR <i className="bi bi-car-front-fill"></i> RENTAL
@@ -163,6 +183,8 @@ export default function Main() {
           </p>
         </div>
       </div>
+    </div>
+    
     </div>
   );
 }

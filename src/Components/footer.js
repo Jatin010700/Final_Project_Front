@@ -17,7 +17,7 @@ export const Footer = () => {
         <div className="flex items-center p-4">
           <h2 className="font-bold text-2xl text-B-yellow mr-2">Follow Us: </h2>
           <div className="flex items-center gap-2">
-            <Icon className="" />
+            <Icon />
           </div>
         </div>
       </div>

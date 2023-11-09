@@ -17,9 +17,16 @@ export const logout = () => {
   return { type: LOGOUT };
 };
 
+export const setUsernameState = (UsernameState) => {
+  return {
+    type: 'SET_USERNAME',
+    payload: UsernameState,
+  };
+};
 // Reducer
 const initialState = {
   userLogin: false,
+  userName: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -28,6 +35,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         userLogin: true,
+      };
+      case 'SET_USERNAME':
+      return {
+        ...state,
+        userName: action.payload,
       };
     case LOGOUT:
       return {

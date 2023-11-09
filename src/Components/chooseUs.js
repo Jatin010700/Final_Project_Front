@@ -6,11 +6,11 @@ export const ChooseUs = () => {
         <h2 className="text-4xl font-bold text-center p-4 ">
           <span className="underline decoration-B-yellow">Why Ch</span>oose Us
         </h2>
-        <div className="flex justify-center">
+        <div className="flex justify-center px-16">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-2 w-4/5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-2">
           <div className="rounded-2xl">
-            <img className="h-full rounded-2xl" src="assets/lambor.gif" alt="" />
+            <img className="h-full w-full rounded-2xl" src="assets/lambor.gif" alt="" />
           </div>
 
           <div className="bg-L-black text-B-yellow rounded-2xl p-4 drop-shadow-md">
@@ -45,7 +45,7 @@ export const ChooseUs = () => {
           </div>
 
           <div className="grid4">
-            <img className="h-full rounded-2xl" src="assets/ferrari.gif" alt="" />
+            <img className="h-full w-full rounded-2xl" src="assets/ferrari.gif" alt="" />
           </div>
         </div>
 

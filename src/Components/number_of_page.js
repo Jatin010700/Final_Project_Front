@@ -30,7 +30,7 @@ export const NumberPages = () => {
     <div className="bg-white">
       <div className="flex justify-center gap-2 p-4">
         <div
-          className={`bg-B-yellow rounded-full w-11 text-center active:transform active:-translate-y-1/4 scale-105 duration-150 ${
+          className={`bg-B-yellow rounded-full w-11 text-center active:transform active:-translate-y-1 transition ease-in-out hover:scale-110 duration-150 cursor-pointer ${
             slideIndex > 0 ? "cursor-pointer" : ""
           }`}
           onClick={handleSlideLeft}
@@ -41,13 +41,13 @@ export const NumberPages = () => {
           <Link
             key={index}
             to={page.to}
-            className="border-2 border-B-yellow p-2 w-11 text-center rounded-full hover:bg-L-black hover:text-B-yellow font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+            className="border-2 border-B-yellow p-2 w-11 text-center rounded-full hover:bg-L-black hover:text-B-yellow font-bold transition ease-in-out hover:scale-110 duration-150"
           >
             {page.label}
           </Link>
         ))}
         <div
-          className={`bg-B-yellow rounded-full w-11 text-center  active:transform active:-translate-y-1/4 scale-105 duration-150 ${
+          className={`bg-B-yellow rounded-full w-11 text-center  active:transform active:-translate-y-1 transition ease-in-out hover:scale-110 duration-150 ${
             slideIndex < pages.length - 3 ? "cursor-pointer" : ""
           }`}
           onClick={handleSlideRight}

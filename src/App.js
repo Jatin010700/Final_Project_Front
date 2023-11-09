@@ -14,6 +14,7 @@ import { Soon } from "./Coming_Soon";
 
 import { SearchCar } from "./Components/Car_List/Search_Car";
 import { SearchCar1 } from "./Components/Car_List/Search_Car1";
+import { CarOwner } from "./Components/CarOwner/owner";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
 
           <Route path="/carlist" element={<SearchCar />} />
+          <Route path="/carcontent" element={<CarOwner/>} />
 
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Main />} />

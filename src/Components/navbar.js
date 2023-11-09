@@ -31,8 +31,8 @@ export const NavBar = () => {
   );
 
   return (
-    <div className="flex flex-wrap justify-between items-center bg-white p-2 w-full sticky top-0 z-50 shadow">
-      <Link to="/" className="font-bold p-2 text-2xl">
+    <div className="flex flex-wrap justify-between items-center bg-white px-16 py-3 w-full sticky top-0 z-50 shadow">
+      <Link to="/" className="font-bold text-2xl">
         <span className="text-B-yellow text-4xl">Car</span>{" "}
         <i className="text-4xl bi bi-car-front-fill"></i> Rental
       </Link>
@@ -50,13 +50,13 @@ export const NavBar = () => {
           <>
             <Link
               to="/login"
-              className="p-2 px-4 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+              className="p-2 px-4 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:scale-110 duration-150"
             >
               LOGIN
             </Link>
             <Link
               to="/register"
-              className="p-2 px-4 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150"
+              className="p-2 px-4 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:scale-110 duration-150"
             >
               SIGN UP
             </Link>

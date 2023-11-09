@@ -33,7 +33,7 @@ const ListOfCar = ({ name, image, info, icon, searchQuery }) => {
         <div className="flex flex-wrap gap-4 text-B-yellow text-2xl p-2">
           {icon}
         </div>
-        <button className="text-L-black bg-B-yellow rounded-full py-2 px-12 font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150">
+        <button className="text-L-black bg-B-yellow rounded-full py-2 px-12 font-bold  active:transform active:-translate-y-1 transition ease-in-out hover:scale-110 duration-150">
           Rent Now
         </button>
       </div>

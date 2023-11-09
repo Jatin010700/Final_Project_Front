@@ -15,7 +15,7 @@ const ListOfcar = ({ image, title, para, link }) => {
           <p className="text-white para">{para}</p>
           <div className="flex flex-wrap gap-2 p-2">
             <Link
-              className="bg-B-yellow rounded-full py-2 px-20 font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 infoBTN"
+              className="bg-B-yellow rounded-full py-2 px-20 font-bold transition ease-in-out hover:scale-110 duration-150 infoBTN"
               to={link}
             >
               More Info
@@ -34,12 +34,14 @@ const AdvancedCarousel = () => {
     const [imageData, setImageData] = useState([]);
     const imageIds = useMemo(() => [1, 2, 3, 4, 5, 6], []); // Example image IDs
   
+    // https://car-rental-back.onrender.com/api/images/${id}
+
     useEffect(() => {
       const fetchImages = async () => {
         try {
           const imagePromises = imageIds.map(async (id) => {
             const response = await fetch(
-              `https://car-rental-back.onrender.com/api/images/${id}`
+              ``
             );
             if (!response.ok) {
               throw new Error(`Error retrieving image with ID ${id}`);
@@ -128,11 +130,11 @@ const AdvancedCarousel = () => {
       iconBTN"
       >
         <button onClick={() => prev()}
-        className="bg-B-yellow w-11 h-11 rounded-full active:transform active:-translate-y-1/4 scale-105 duration-150">
+        className="bg-B-yellow w-11 h-11 rounded-full active:transform active:-translate-y-1 transition ease-in-out hover:scale-110 duration-150">
           <i id="left"className="bi bi-caret-left-fill"></i>
         </button>
         <button onClick={() => next()}
-        className="bg-B-yellow w-11 h-11 rounded-full active:transform active:-translate-y-1/4 scale-105 duration-150">
+        className="bg-B-yellow w-11 h-11 rounded-full active:transform active:-translate-y-1 transition ease-in-out hover:scale-110 duration-150">
           <i id="right" className="
           bi bi-caret-right-fill"></i>
         </button>
