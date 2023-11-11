@@ -19,7 +19,7 @@ const ListOfcar = ({ image, title, para, link }) => {
           <div className="flex flex-wrap gap-2 p-2">
             <Link
               className="bg-B-yellow rounded-full py-2 px-20 font-bold transition ease-in-out hover:scale-110 duration-150 infoBTN"
-              to={link}   
+              to={link} 
             >
               More Info
             </Link> 

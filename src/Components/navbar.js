@@ -8,7 +8,8 @@ export const NavBar = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const dispatch = useDispatch();
   const [showMobileNav, setShowMobileNav] = useState(false);
-  
+  const userName = useSelector((state) => state.userName);
+
   const handleLogout = () => {
     dispatch(logout());
   };
@@ -31,7 +32,7 @@ export const NavBar = () => {
   );
 
   return (
-    <div className="flex flex-wrap justify-between items-center bg-white px-16 py-3 w-full sticky top-0 z-50 shadow">
+    <div className="flex flex-wrap justify-between items-center bg-white px-4 md:px-16 py-3 w-full sticky top-0 z-50 shadow">
       <Link to="/" className="font-bold text-2xl">
         <span className="text-B-yellow text-4xl">Car</span>{" "}
         <i className="text-4xl bi bi-car-front-fill"></i> Rental
@@ -72,13 +73,16 @@ export const NavBar = () => {
         </button>
         {/* Mobile navbar */}
         {showMobileNav && (
-          <div className="absolute top-16 right-0 mt-3 mr-8 w-80 bg-white p-3 shadow-lg rounded-2xl transition duration-300 ease-in-out transform">
+          <div className="absolute top-16 right-0 mt-4 mr-8 w-80 bg-white p-3 shadow-lg rounded-2xl transition duration-300 ease-in-out transform">
             <ul className="flex flex-col text-center items-center gap-3">
               <li>
-                <NavButton to="/" text="Home" />
+              <h1 className="text-center font-bold text-2xl">{userName}</h1>
               </li>
+
+              <div className="h-0.5 w-full rounded-full bg-L-black/75 " />
+
               <li>
-                <NavButton to="/carlist" text="Car Rent" />
+                <NavButton to="/carlist" text="Rent Car" />
               </li>
               <li>
                 <NavButton to="/soon" text="About" />
@@ -87,9 +91,14 @@ export const NavBar = () => {
                 <NavButton to="/contact" text="Contact" />
               </li>
 
-              <div className="flex gap-2">
+              <div className="flex justify-center items-center gap-2 w-full">
+                
                 {userLogin ? (
-                  <ul className="flex flex-col gap-3">
+                  <>
+                    
+                  <ul className="flex flex-col  items-center gap-3 w-full">
+
+<div className="h-0.5 w-full rounded-full bg-L-black/75 " />
                     <li>
                       <Link
                         to="/soon"
@@ -120,7 +129,7 @@ export const NavBar = () => {
                     >
                       LOG OUT
                     </button>
-                  </ul>
+                  </ul></>
                 ) : (
                   <>
                     <li>
