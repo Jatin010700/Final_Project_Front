@@ -1,32 +1,33 @@
 import React from "react";
 import { NavBar } from "./navbar";
 import { Footer } from "./footer";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const Info1 = () => {
+  const { carName, imageURL, price, rent } = useParams();
+
   return (
     <>
       <NavBar />
 
       <div className="bg-white ">
-        <div className="flex flex-col justify-between pt-4 px-4 md:flex-row">
-          <h2 className="font-bold text-4xl mb-4 md:mb-0">
-            <span className="underline decoration-B-yellow">Buga</span>tti
-            Chiron
-          </h2>
-          <h2 className="font-bold text-xl ">
-            <span className="underline decoration-B-yellow">For</span> Rent
-          </h2>
+
+        <div className="flex flex-col justify-between pt-4 px-16 md:flex-row">
+          <h2 className="font-bold text-4xl mb-4">{carName}</h2>
+          <h2 className="font-bold text-2xl">For Rent</h2>
         </div>
-        <div className="flex flex-col md:flex-row gap-2 justify-center w-full p-4">
-          <div className="p-4 text-justify bg-L-black rounded-2xl">
-            <img src="assets/car1.jpg" alt="" className="rounded-2xl" />
+
+        <div className="flex flex-col md:flex-row gap-2 justify-between bg-L-black w-full py-4 px-16">
+
+          <div className=" text-justify bg-L-black rounded-2xl">
+            <img src={imageURL} alt="" className="rounded-2xl" />
           </div>
-          <div className="flex flex-col gap-2 border-2 bg-L-black text-white border-L-black rounded-2xl p-4 ">
-            <p className="p-2 bg-B-yellow text-L-black w-full md:w-96  rounded-full font-bold">
+
+          <div className="flex flex-col gap-2 border-2 bg-L-black text-white border-L-black rounded-2xl py-4">
+            <p className="p-2 bg-B-yellow text-L-black w-full md:w-96  rounded-2xl font-bold">
               Duty-Paid
             </p>
-            <p className="text-2xl p-2">$750,000</p>
+            <p className="text-2xl p-2">${price}</p>
             <hr className="text-B-yellow" />
             <p className="">
               On road without{" "}
@@ -37,21 +38,28 @@ export const Info1 = () => {
             <hr className="text-B-yellow" />
             <p className="text-B-yellow">Rent estimation:</p>
             <p className="">
-              <span className="text-2xl">$1,500/</span>month
+              <span className="text-2xl">${rent}/</span>month
             </p>
             <hr className="text-B-yellow" />
-            <p className="p-2 bg-B-yellow text-L-black rounded-full font-bold w-full md:w-96 ">
+            <p className="p-2 bg-B-yellow text-L-black rounded-2xl font-bold w-full md:w-96 ">
               Seller
             </p>
             <div className="flex justify-center">
-            <img src="assets/Bugatti-logo.png" alt="" className="w-40 text" /></div>
-            <Link to="/soon" className="border-2 border-B-yellow rounded-full text-center  py-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 hover:bg-B-yellow hover:text-L-black font-bold">
+              <img src="assets/Bugatti-logo.png " alt="" className="w-40 text" />
+            </div>
+            <Link
+              to="/soon"
+              className="border-2 border-B-yellow rounded-full text-center 
+              py-2 transition ease-in-out hover:scale-105 duration-150
+               hover:bg-B-yellow hover:text-L-black font-bold"
+            >
               Rent Now
             </Link>
           </div>
+          
         </div>
 
-        <div className="flex flex-col md:flex-row gap-2 justify-center w-full p-4">
+        <div className="flex flex-col md:flex-row gap-2 justify-around w-full py-4 px-16">
           <div className="p-4 text-justify border-2 border-l-L-black rounded-2xl">
             <h2 className="font-bold text-xl">
               <span className="underline decoration-B-yellow">Info</span>rmation
@@ -98,13 +106,16 @@ export const Info1 = () => {
               className="rounded-full p-2 mb-2 border-2 border-L-black"
               placeholder="Enter First Name"
             />
-            <label className="text-L-black">Leave a review:</label>
+            <label className="text-L-black">Comment:</label>
             <textarea
               className="rounded-2xl p-2  w-full md:w-96 border-2 border-L-black"
-              placeholder="Leave a review"
+              placeholder="Leave a comment"
             />
-            <button className="py-2 px-2 mt-2 bg-B-yellow rounded-full font-bold hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150">
-            Submit</button>
+            <button className="py-2 px-2 mt-2 bg-B-yellow rounded-full font-bold 
+            hover:bg-L-black hover:text-B-yellow shadow transition ease-in-out 
+             hover:scale-105 duration-150">
+              Submit
+            </button>
           </div>
         </div>
       </div>

@@ -13,6 +13,8 @@ export const CarOwner = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef(null);
+  let [paraValue, setParaValue] = useState("");
+  let [success, setSuccess] = useState("");
   const userName = useSelector((state) => state.userName);
   //   const handleImageChange = (e) => {
   //     const file = e.target.files[0];
@@ -59,14 +61,33 @@ export const CarOwner = () => {
       if (res.status === 200) {
         const data = await res.json();
         setIsLoading(false)
-        alert(data.message);
+        setParaValue(data.message);
+
+        setTimeout(() => {
+          setParaValue("");
+        }, 1000);
+
+        setSuccess(true);
         refreshForm();
       } else {
         const errorData = await res.json();
-        alert(errorData.error || "Server error");
+        setParaValue(errorData.error);
+
+        setTimeout(() => {
+          setParaValue("");
+        }, 1000);
+
+        setSuccess(false);
       }
     } catch (error) {
-      alert("An error occurred: " + error.message);
+      setParaValue(error.message);
+
+      setTimeout(() => {
+        setParaValue("");
+      }, 1000);
+
+      setSuccess(false);
+      // alert("An error occurred: " + error.message);
     }
   };
 
@@ -96,9 +117,16 @@ export const CarOwner = () => {
             onSubmit={handleSubmit}
             className="rounded-2xl shadow p-4 mt-2 w-full sm:w-4/6 md:w-2/6 bg-L-black text-white flex flex-col gap-2"
           >
-            <h1 className="text-center pb-2 text-2xl">
+            <h1 className="text-center uppercase font-bold pb-2 text-2xl">
               {userName}
             </h1>
+            <p
+          className={`text-center font-bold text-white ${
+            success ? "success" : "error"
+          }`}
+        >
+          {paraValue}
+        </p>
             <div className="file-upload">
               <label
                 htmlFor="fileInput"
@@ -150,6 +178,12 @@ export const CarOwner = () => {
                 onChange={(e) => setRent(e.target.value)}
               />
             </div>
+
+            <p className="text-sm">
+              <span className="text-B-yellow font-bold text-base">Note: </span>
+              Please refresh form if any mistake were made!!
+            </p>
+            
             <div className="flex justify-center gap-2">
             <button
             type="submit"
@@ -172,7 +206,7 @@ export const CarOwner = () => {
 
           {image.length > 0 && (
             <div className="w-4/6 h-[200px]">
-              <div className="flex flex-wrap h-[180%] overflow-auto">
+              <div className="flex flex-wrap h-[250%] overflow-auto">
                 {image.map((image, index) => (
                   <div key={index} className="w-full sm:w-3/6 md:w-2/6 p-2">
                     <img
