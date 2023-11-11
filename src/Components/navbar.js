@@ -32,7 +32,7 @@ export const NavBar = () => {
   );
 
   return (
-    <div className="flex flex-wrap justify-between items-center bg-white px-4 md:px-16 py-3 w-full sticky top-0 z-50 shadow">
+    <div className="flex flex-wrap justify-between items-center bg-white px-10 md:px-16 py-3 w-full sticky top-0 z-50 shadow">
       <Link to="/" className="font-bold text-2xl">
         <span className="text-B-yellow text-4xl">Car</span>{" "}
         <i className="text-4xl bi bi-car-front-fill"></i> Rental
