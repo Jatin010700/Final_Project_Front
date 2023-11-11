@@ -78,6 +78,7 @@ export const CarOwner = () => {
         }, 1000);
 
         setSuccess(false);
+        setIsLoading(false)
       }
     } catch (error) {
       setParaValue(error.message);

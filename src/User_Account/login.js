@@ -57,6 +57,7 @@ export default function Main() {
         const errorData = await response.json();
         setParaValue(errorData.error);
         setSuccess(false);
+        setIsLoading(false)
       }
     } catch (error) {
       console.error("Error:", error);
