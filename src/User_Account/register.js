@@ -23,7 +23,7 @@ export default function Register() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/register",
+        "https://car-rental-back.onrender.com/register",
         {
           method: "POST",
           headers: {
@@ -165,14 +165,22 @@ export default function Register() {
           <button
             type="submit"
             id="registerBTN"
-            className="w-2/4  bg-L-black text-B-yellow hover:bg-L-black hover:text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow hover:border-B-yellow transition ease-in-out hover:scale-110 duration-150 btn"
+            className="w-2/4  bg-L-black text-B-yellow 
+            hover:bg-L-black hover:text-B-yellow py-2 px-4 rounded-full
+             font-bold border-2 border-B-yellow 
+             hover:border-B-yellow transition ease-in-out
+              hover:scale-110 duration-150 btn"
             disabled={isFormValid()}
           >
             {isLoading ? <Preloader/> : "REGISTER"}
           </button>
 
           <Link
-            className="w-2/4 bg-L-black text-B-yellow hover:bg-L-black hover:text-B-yellow py-2 px-4 rounded-full font-bold border-2 border-B-yellow hover:border-B-yellow transition ease-in-out hover:scale-110 duration-150"
+            className="w-2/4 bg-L-black text-B-yellow 
+            hover:bg-L-black hover:text-B-yellow py-2 px-4 
+            rounded-full font-bold border-2 border-B-yellow
+             hover:border-B-yellow transition ease-in-out
+              hover:scale-110 duration-150"
             to="/login"
           >
             LOGIN

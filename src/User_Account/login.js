@@ -24,7 +24,7 @@ export default function Main() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        "http://localhost:5000/login",
+        "https://car-rental-back.onrender.com/login",
         {
           method: "POST",
           headers: {

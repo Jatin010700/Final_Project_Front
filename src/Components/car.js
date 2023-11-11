@@ -38,7 +38,7 @@ const AdvancedCarousel = () => {
     useEffect(() => {
       const fetchCarListings = async () => {
         try {
-          const response = await fetch('http://localhost:5000/api/car-data');
+          const response = await fetch('https://car-rental-back.onrender.com/api/car-data');
           if (response.ok) {
             const data = await response.json();
             // console.log('Fetched data:', data);

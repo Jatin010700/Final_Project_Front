@@ -50,7 +50,7 @@ export const CarOwner = () => {
         formData.append("images", image[i]);
       }
 
-      const res = await fetch("http://localhost:5000/api/owner-data", {
+      const res = await fetch("https://car-rental-back.onrender.com/api/owner-data", {
         method: "POST",
         body: formData,
         // headers: {
