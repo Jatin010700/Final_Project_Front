@@ -73,7 +73,8 @@ export const NavBar = () => {
         </button>
         {/* Mobile navbar */}
         {showMobileNav && (
-          <div className="absolute top-16 right-0 mt-4 mr-8 w-80 bg-white p-3 shadow-lg rounded-2xl transition duration-300 ease-in-out transform">
+          <div className="absolute top-16 right-0 mt-4 mr-8 w-80 bg-white p-3 shadow-lg rounded-2xl
+          transition duration-300 ease-in-out transform border-2">
             <ul className="flex flex-col text-center items-center gap-3">
               <li>
               <h1 className="text-center font-bold text-2xl">{userName}</h1>

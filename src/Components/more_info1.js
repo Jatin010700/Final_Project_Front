@@ -13,11 +13,11 @@ export const Info1 = () => {
       <div className="bg-white ">
 
         <div className="flex flex-col justify-between pt-4 px-16 md:flex-row">
-          <h2 className="font-bold text-4xl mb-4">{carName}</h2>
-          <h2 className="font-bold text-2xl">For Rent</h2>
+          <h2 className="font-bold text-2xl md:text-4xl mb-4">{carName}</h2>
+          <h2 className="font-bold text-2xl hidden md:block">For Rent</h2>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-2 justify-between bg-L-black w-full py-4 px-16">
+        <div className="flex flex-col md:flex-row gap-2 justify-between bg-L-black w-full py-4 px-10 md:px-16">
 
           <div className=" text-justify bg-L-black rounded-2xl">
             <img src={imageURL} alt="" className="rounded-2xl" />
@@ -59,7 +59,7 @@ export const Info1 = () => {
           
         </div>
 
-        <div className="flex flex-col md:flex-row gap-2 justify-around w-full py-4 px-16">
+        <div className="flex flex-col md:flex-row gap-2 justify-around w-full py-4  px-10 md:px-16">
           <div className="p-4 text-justify border-2 border-l-L-black rounded-2xl">
             <h2 className="font-bold text-xl">
               <span className="underline decoration-B-yellow">Info</span>rmation
