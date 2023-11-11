@@ -72,7 +72,7 @@ export default function Register() {
     <div className="flex justify-center items-center ">
     <div
       id="container"
-      className="flex  w-3/4 mt-16 rounded-2xl justify-between registerDiv"
+      className="flex justify-center w-3/4 mt-16 rounded-2xl registerDiv"
     >
       <form
         id="register-form"
@@ -80,7 +80,7 @@ export default function Register() {
         onSubmit={handleSubmit}
       >
  <Link
-          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-4 mobileHeader "
+          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:scale-105 duration-150 mb-4 mobileHeader "
           to={"/"}
         >
           <span className="text-B-yellow">Car</span>{" "}

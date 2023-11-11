@@ -73,7 +73,7 @@ export default function Main() {
 
     <div
       id="container"
-      className="flex w-3/4 gap-2 mt-28 rounded-2xl loginDiv"
+      className="flex justify-center w-3/4 gap-2 mt-28 rounded-2xl loginDiv"
     >
       
       <form
@@ -83,7 +83,7 @@ export default function Main() {
       > 
       
       <Link
-          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-150 mb-4 mobileHeader "
+          className="text-L-black text-5xl text-center font-bold transition ease-in-out hover:scale-105 duration-150 mb-4 mobileHeader "
           to={"/"}
         >
           <span className="text-B-yellow">Car</span>{" "}
