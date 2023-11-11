@@ -22,6 +22,7 @@ export default function Register() {
     event.preventDefault();
 
     try {
+      setIsLoading(true)
       const response = await fetch(
         "https://car-rental-back.onrender.com/register",
         {
