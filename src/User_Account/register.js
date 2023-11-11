@@ -43,6 +43,11 @@ export default function Register() {
       if (response.ok) {
         const data = await response.json();
         setParaValue(data.message);
+
+        setTimeout(() => {
+          setParaValue("");
+        }, 1000);
+        
         setSuccess(true);
 
         setTimeout(() => {
@@ -51,6 +56,11 @@ export default function Register() {
       } else {
         const errorData = await response.json();
         setParaValue(errorData.error);
+
+        setTimeout(() => {
+          setParaValue("");
+        }, 1000);
+
         setSuccess(false);
         setIsLoading(false)
       }

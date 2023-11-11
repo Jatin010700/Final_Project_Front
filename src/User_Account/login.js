@@ -40,6 +40,11 @@ export default function Main() {
       if (response.ok) {
         const data = await response.json();
         setParaValue(data.message);
+
+        setTimeout(() => {
+          setParaValue("");
+        }, 1000);
+
         setSuccess(true);
 
       //      // Assuming your JWT token is returned in data.token
@@ -56,6 +61,11 @@ export default function Main() {
       } else {
         const errorData = await response.json();
         setParaValue(errorData.error);
+        
+        setTimeout(() => {
+          setParaValue("");
+        }, 1000);
+
         setSuccess(false);
         setIsLoading(false)
       }
