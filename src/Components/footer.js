@@ -1,7 +1,22 @@
-import React from "react";
-import { Icon } from "../User_Account/icon";
+import React, { useEffect, useState } from "react";
+import { Icon } from "./extra/icon";
 
 export const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  //Automatically update year
+  useEffect(() => {
+    const updateYear = () => {
+      setCurrentYear(new Date().getFullYear());
+    };
+
+    updateYear();
+
+    const interValid = setInterval(updateYear, 1000);
+
+    return () => clearInterval(interValid);
+  }, []);
+
   return (
     <div className="bg-white">
       <div className="bg-L-black flex flex-wrap justify-center md:justify-evenly">
@@ -11,7 +26,10 @@ export const Footer = () => {
           <p>Phone: (123) 456-7890</p>
           <p>Email: info@example.com</p>
           <hr className="m-2" />
-          <p>&copy; 2023 Car Rental Company. <br/> All rights reserved by Jatin Oomajee.</p>
+          <p>
+            &copy; {currentYear} Car Rental Company. <br /> All rights reserved
+            by Jatin Oomajee.
+          </p>
         </div>
 
         <div className="flex items-center p-4">

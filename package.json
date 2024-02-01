@@ -24,7 +24,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",
     "react-router": "^6.13.0",
-    "react-router-dom": "^6.13.0",
+    "react-router-dom": "^6.21.2",
     "react-scripts": "5.0.1",
     "react-snap-carousel": "^0.3.2",
     "redux": "^4.2.1",
@@ -38,7 +38,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://car-rental-back.onrender.com/",
+  "proxy": "http://localhost:5000/",
   "eslintConfig": {
     "extends": [
       "react-app",

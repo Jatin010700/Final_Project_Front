@@ -3,6 +3,7 @@ import { NavBar } from "../navbar";
 import { Footer } from "../footer";
 import { NumberPages } from "./number_of_page";
 import { Link } from "react-router-dom";
+import { Preloader } from "../preloader";
 
 const ListOfCar = ({
   currentOwner,
@@ -14,6 +15,7 @@ const ListOfCar = ({
   link,
   link1,
   searchQuery,
+  isLoading,
 }) => {
   const filteredCars = name.toLowerCase().includes(searchQuery.toLowerCase());
 
@@ -23,50 +25,55 @@ const ListOfCar = ({
 
   return (
     <>
-      <p className="text-4xl mb-4 font-bold text-B-yellow text-uppercase">
-        {name}
-      </p>
+      {isLoading ? (
+        <Preloader className="flex justify-center items-center" />
+      ) : (
+        <>
+          <p className="text-4xl mb-4 font-bold text-B-yellow text-uppercase">
+            {name}
+          </p>
 
-      <div className="">{image}</div>
+          <div className="">{image}</div>
 
-      <p className="py-2 text-lg font-bold">
-        Current Owner:
-        <span className="text-2xl uppercase text-B-yellow">
-          {" "}
-          {currentOwner}
-        </span>
-      </p>
-      <div className="w-full ">
-        <div className="flex items-center">
-          <h2 className=" text-xl">Price :</h2>
-          <p className="ml-2">{info}</p>
-        </div>
-        <div className="flex items-center">
-          <h2 className="font-bold text-xl">Rent price :</h2>
-          <p className="ml-2">{rent}</p>
-        </div>
-        <div className="flex items-center">
-          <p className="font-bold text-xl">Specification :</p>
-          <div className="flex flex-wrap gap-2 text-B-yellow text-2xl p-2">
-            {icon}
+          <p className="py-2 text-lg font-bold">
+            Current Owner:
+            <span className="text-2xl uppercase text-B-yellow">
+              {currentOwner}
+            </span>
+          </p>
+          <div className="w-full ">
+            <div className="flex items-center">
+              <h2 className=" text-xl">Price :</h2>
+              <p className="ml-2">{info}</p>
+            </div>
+            <div className="flex items-center">
+              <h2 className="font-bold text-xl">Rent price :</h2>
+              <p className="ml-2">{rent}</p>
+            </div>
+            <div className="flex items-center">
+              <p className="font-bold text-xl">Specification :</p>
+              <div className="flex flex-wrap gap-2 text-B-yellow text-2xl p-2">
+                {icon}
+              </div>
+            </div>
+
+            <div className="flex gap-2 justify-center">
+              <Link
+                className="text-L-black bg-B-yellow rounded-full py-2 px-4 md:px-12 font-bold active:transform active:-translate-y-1 transition ease-in-out hover:scale-110 duration-150"
+                to={link}
+              >
+                Rent Now
+              </Link>
+              <Link
+                className="text-L-black bg-B-yellow rounded-full py-2 px-4 md:px-12 font-bold active:transform active:-translate-y-1 transition ease-in-out hover:scale-110 duration-150"
+                to={link1}
+              >
+                More Info
+              </Link>
+            </div>
           </div>
-        </div>
-
-        <div className="flex gap-2 justify-center">
-          <Link
-            className="text-L-black bg-B-yellow rounded-full py-2 px-4 md:px-12 font-bold active:transform active:-translate-y-1 transition ease-in-out hover:scale-110 duration-150"
-            to={link}
-          >
-            Rent Now
-          </Link>
-          <Link
-            className="text-L-black bg-B-yellow rounded-full py-2 px-4 md:px-12 font-bold active:transform active:-translate-y-1 transition ease-in-out hover:scale-110 duration-150"
-            to={link1}
-          >
-            More Info
-          </Link>
-        </div>
-      </div>
+        </>
+      )}
     </>
   );
 };
@@ -75,12 +82,18 @@ export const SearchCar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [carListings, setCarListings] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  
   const carsPerPage = 6;
 
   useEffect(() => {
+    setIsLoading(true);
+    setCurrentPage(1);
     const fetchCarListings = async () => {
       try {
-        const response = await fetch("https://car-rental-back.onrender.com/api/car-data");
+        const response = await fetch(
+          "https://car-rental-back.onrender.com/api/car-data"
+        );
         if (response.ok) {
           const data = await response.json();
           setCarListings(data);
@@ -89,19 +102,23 @@ export const SearchCar = () => {
         }
       } catch (error) {
         console.error("Error during fetch:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchCarListings();
-  }, []);
-
-  useEffect(() => {
-    setCurrentPage(1);
   }, [searchQuery]);
 
-  const mappedCarListings = carListings.map((listing, index) => ({
+  const mappedCarListings = carListings.map((listing, id) => ({
     title: listing.car_name,
-    image: <img src={JSON.parse(listing.image_url)[0]} alt="" />,
+    image: (
+      <img
+        src={JSON.parse(listing.image_url)[0]}
+        alt=""
+        className=" rounded-xl"
+      />
+    ),
     currentOwner: listing.login_user_name,
     info: `$${listing.price}`,
     rent: `$${listing.rent}/month`,
@@ -111,11 +128,11 @@ export const SearchCar = () => {
       <i class="bi bi-signpost-fill"></i>,
     ],
     link: ``,
-    link1: `/info1/${encodeURIComponent(listing.car_name)}/${encodeURIComponent(
-      JSON.parse(listing.image_url)[0]
-    )}/${encodeURIComponent(listing.price)}/${encodeURIComponent(
-      listing.rent
-    )}`,
+    link1: `/info1/${encodeURIComponent(listing.car_name)}
+    /${encodeURIComponent(JSON.parse(listing.image_url)[0])}
+    /${encodeURIComponent(listing.price)}
+    /${encodeURIComponent(listing.rent)}
+    /${encodeURIComponent(listing.login_user_name)}`
   }));
 
   const filteredCars = mappedCarListings.filter((car) =>
@@ -175,6 +192,7 @@ export const SearchCar = () => {
                 className="flex flex-col bg-L-black text-white p-4 mb-4 rounded-2xl border-2 border-L-black"
               >
                 <ListOfCar
+                  key={index}
                   name={car.title}
                   image={car.image}
                   currentOwner={car.currentOwner}
@@ -183,6 +201,7 @@ export const SearchCar = () => {
                   icon={car.icon}
                   link1={car.link1}
                   searchQuery={searchQuery}
+                  isLoading={isLoading}
                 />
               </div>
             ))}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSnapCarousel } from "react-snap-carousel";
 import "../CSS/car.css";
-
+import { Preloader } from "./preloader"
 //carousel not working as intended
 //making some changes like adding space seem to fixed it
 
@@ -34,9 +34,11 @@ const AdvancedCarousel = () => {
   const { scrollRef, next, prev } = useSnapCarousel()
 
     const [carListings, setCarListings] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
       const fetchCarListings = async () => {
+        // setIsLoading(true);
         try {
           const response = await fetch('https://car-rental-back.onrender.com/api/car-data');
           if (response.ok) {
@@ -49,19 +51,27 @@ const AdvancedCarousel = () => {
         } catch (error) {
           console.error('Error during fetch:', error);
         } 
-        // finally {
-        //   // setLoading(false); 
-        // }
+        finally {
+          setIsLoading(false); 
+        }
       };
   
       fetchCarListings();
     }, []); // Run this effect only once on component mount
   
+   if (isLoading) {
+    return <Preloader className="p-10 bg-white flex 
+    justify-center items-center" size={75}/>
+   }
     const mappedCarListings = carListings.map((listing, index) => ({
       image: <img src={JSON.parse(listing.image_url)[0]} alt="" />,
       title: listing.car_name,
       para: `Price: $${listing.price} | $${listing.rent}/month`,
-      link: `/info1/${encodeURIComponent(listing.car_name)}/${encodeURIComponent(JSON.parse(listing.image_url)[0])}/${encodeURIComponent(listing.price)}/${encodeURIComponent(listing.rent)}`,
+      link: `/info1/${encodeURIComponent(listing.car_name)}
+      /${encodeURIComponent(JSON.parse(listing.image_url)[0])}
+      /${encodeURIComponent(listing.price)}
+      /${encodeURIComponent(listing.rent)}
+      /${encodeURIComponent(listing.login_user_name)}`
     })).slice(0, 8);
 
   return (
@@ -80,6 +90,7 @@ const AdvancedCarousel = () => {
       >
         {mappedCarListings.map((car, index) => (
           <Link key={index} to={car.link}>
+            
           <ListOfcar
             image={car.image}
             title={car.title}

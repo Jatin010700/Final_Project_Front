@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../CSS/main.css"
 
+//reminder update to access user?
 export const ForgotPass = () => {
   const [username, setUsername] = useState("");
   const [passValue, setPassValue] = useState("");

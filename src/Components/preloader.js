@@ -1,10 +1,10 @@
 import { dotPulse } from "ldrs";
 dotPulse.register();
 
-export const Preloader = () => {
+export const Preloader = ({ className, size }) => {
   return (
-    <div>
-      <l-dot-pulse size="43" speed="1.3" color="#febd00" ></l-dot-pulse>
+    <div className={className}>
+      <l-dot-pulse size={size} speed="1.3" color="#febd00" ></l-dot-pulse>
     </div>
   );
 };

@@ -33,7 +33,7 @@ export const NumberPages = ({ currentPage, totalPages, onPageChange }) => {
             currentPage > 1 ? "cursor-pointer" : ""
           }`}
           onClick={handleSlideLeft}
-        >
+        > 
           <i className="text-L-black relative top-2 text-xl bi bi-caret-left-fill"></i>
         </div>
         {Array.from({ length: Math.min(3, totalPages) }, (_, index) => (

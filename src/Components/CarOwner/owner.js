@@ -3,6 +3,7 @@ import { NavBar } from "../navbar";
 import { Footer } from "../footer";
 import { dotPulse } from "ldrs";
 import { useSelector } from "react-redux";
+import { useAuth } from "../extra/authContext";
 dotPulse.register();
 
 export const CarOwner = () => {
@@ -16,6 +17,7 @@ export const CarOwner = () => {
   let [paraValue, setParaValue] = useState("");
   let [success, setSuccess] = useState("");
   const userName = useSelector((state) => state.userName);
+  
   //   const handleImageChange = (e) => {
   //     const file = e.target.files[0];
   //     setImage(file);
@@ -30,17 +32,6 @@ export const CarOwner = () => {
 
     try {
       setIsLoading(true)
-
-    //   // Get the JWT token from where you stored it (localStorage or cookies)
-    // const token = localStorage.getItem("token");
-
-    // if (!token) {
-    //   // Handle the case where the user is not authenticated
-    //   console.log("User not authenticated.");
-    //   setIsLoading(false);
-    //   return;
-    // }
-
       const formData = new FormData();
       formData.append("username", userName);
       formData.append("carName", carName);

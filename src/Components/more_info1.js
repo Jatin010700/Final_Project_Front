@@ -4,7 +4,7 @@ import { Footer } from "./footer";
 import { Link, useParams } from "react-router-dom";
 
 export const Info1 = () => {
-  const { carName, imageURL, price, rent } = useParams();
+  const { carName, imageURL, price, rent, loginUserName } = useParams();
 
   return (
     <>
@@ -17,14 +17,14 @@ export const Info1 = () => {
           <h2 className="font-bold text-2xl hidden md:block">For Rent</h2>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-2 justify-between bg-L-black w-full py-4 px-10 md:px-16">
+        <div className="flex flex-col md:flex-row justify-between gap-2 bg-L-black w-full py-4 px-10 md:px-16">
 
           <div className=" text-justify bg-L-black rounded-2xl">
             <img src={imageURL} alt="" className="rounded-2xl" />
           </div>
 
           <div className="flex flex-col gap-2 border-2 bg-L-black text-white border-L-black rounded-2xl py-4">
-            <p className="p-2 bg-B-yellow text-L-black w-full md:w-96  rounded-2xl font-bold">
+            <p className="p-2 bg-B-yellow text-L-black w-full md:w-96  rounded-full font-bold">
               Duty-Paid
             </p>
             <p className="text-2xl p-2">${price}</p>
@@ -41,8 +41,8 @@ export const Info1 = () => {
               <span className="text-2xl">${rent}/</span>month
             </p>
             <hr className="text-B-yellow" />
-            <p className="p-2 bg-B-yellow text-L-black rounded-2xl font-bold w-full md:w-96 ">
-              Seller
+            <p className="p-2 bg-B-yellow text-L-black rounded-full font-bold w-full md:w-96 ">
+             Seller : <span className="uppercase">{loginUserName}</span>
             </p>
             <div className="flex justify-center">
               <img src="assets/Bugatti-logo.png " alt="" className="w-40 text" />

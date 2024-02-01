@@ -1,17 +1,38 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../User_Action/action";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const ProfileMenu = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [isOpen, setIsOpen] = useState(false);
   const userName = useSelector((state) => state.userName);
-  
-  const handleLogout = () => {
-    dispatch(logout());
-  };
 
+  const handleLogout = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/logout", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        alert(data.message);
+        localStorage.removeItem("token");
+        dispatch(logout());
+        navigate("/");
+      } else {
+        alert("Logout failed:", res.statusText);
+      }
+    } catch (error) {
+      alert("Server Error!!!", error);
+    }
+  };
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -30,13 +51,16 @@ export const ProfileMenu = () => {
           <div className="flex flex-col items-center gap-2">
             <h1 className="font-bold text-4xl">Account</h1>
             <h1 className="text-center font-bold text-2xl">{userName}</h1>
-            
+
             <div className="h-0.5 w-full rounded-full bg-L-black/75 " />
-            
+
             <ul className="flex flex-col gap-2 w-full items-center">
-              <Link to="/carcontent" className="cursor-pointer rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125">
+              <Link
+                to="/carcontent"
+                className="cursor-pointer rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125"
+              >
                 Rent your Car
-                </Link>
+              </Link>
 
               <li className="cursor-pointer rounded-full font-bold hover:text-B-yellow transition ease-in-out hover:-translate-z-1 hover:scale-125">
                 Billing
