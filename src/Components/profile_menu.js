@@ -12,7 +12,7 @@ export const ProfileMenu = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:5000/logout", {
+      const res = await fetch("https://car-rental-back.onrender.com/logout", {
         method: "POST",
         credentials: "include",
         headers: {
